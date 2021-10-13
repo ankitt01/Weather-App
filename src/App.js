@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 
+
 const options = {
   method: 'GET',
   url: 'https://community-open-weather-map.p.rapidapi.com/weather',
@@ -10,14 +11,14 @@ const options = {
     lon: '0',
     id: '2172797',
     lang: 'null',
-    units: 'imperial',
-    mode: 'xml'
+    units: 'imperial'
   },
   headers: {
     'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
     'x-rapidapi-key': 'bbb25c8f99mshcd089c39737ba8cp11cacajsn846eca9a794c'
   }
 };
+
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
     axios
     .request(options)
     .then((res) => {
-      console.log(JSON.stringify(res.data))
+      console.log(res.data)
     })
     .catch(err => {console.log(err)})
   }, [])
