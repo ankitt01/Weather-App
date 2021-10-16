@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
+import moment from 'moment';
+import './App.css'
 
 
 function App() {
@@ -43,12 +45,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Weather App</h1>
-      <form>
-        <input ref={inputRef} type="text" placeholder="Type the city" />
-        <button onClick={fetchWeatherInfo} type="submit">Show me the weather</button>
-      </form>
-      <h1>{weatherInfo?.name}</h1>
+      <div className="app__container">
+        <h1>Weather App</h1>
+        <form>
+          <input ref={inputRef} type="text" placeholder="Type the city" />
+          <button onClick={fetchWeatherInfo} type="submit">Show me the weather</button>
+        </form>
+        <h1>{weatherInfo?.name}</h1>
+        <h2>{weatherInfo?.main.temp} Degree Celsius</h2>
+        <h1>{weatherInfo && moment.unix(weatherInfo?.sys?.sunrise).format("DD/MM/YYYY")}</h1>
+      </div>
     </div>
   );
 }
